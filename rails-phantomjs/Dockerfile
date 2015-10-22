@@ -30,7 +30,7 @@ RUN apt-get -y -q install nginx nodejs mysql-client postgresql-client \
       libpng-dev \
       libjpeg-dev \
       libqt5webkit5-dev \
-      --no-install-recommends && apt-get clean
+      --no-install-recommends --fix-missing && apt-get clean
 
 # AWS CLI & EB CLi
 RUN pip install --upgrade awscli awsebcli
