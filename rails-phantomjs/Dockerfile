@@ -15,12 +15,6 @@ RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
 # Packages
 RUN apt-get -y -q install nginx nodejs mysql-client postgresql-client \
       python-pip python-dev \
-      build-essential \
-      g++ \
-      flex \
-      bison \
-      gperf \
-      perl \
       libsqlite3-dev \
       libfontconfig1-dev \
       libicu-dev \
@@ -28,7 +22,6 @@ RUN apt-get -y -q install nginx nodejs mysql-client postgresql-client \
       libssl-dev \
       libpng-dev \
       libjpeg-dev \
-      libqt5webkit5-dev \
       --no-install-recommends && apt-get clean
 
 # AWS CLI & EB CLi
@@ -41,14 +34,7 @@ RUN gem install slack-notifier foreman puma pg mysql2 rails
 RUN npm install --global dredd aglio && npm cache clear
 
 # PhantomJS
-ENV PHANTOM_JS_TAG 2.0.0
-
-RUN cd /tmp && \
-  curl -s https://codeload.github.com/ariya/phantomjs/tar.gz/$PHANTOM_JS_TAG | tar -xz && \
-  cd phantomjs-$PHANTOM_JS_TAG && \
-  ./build.sh --confirm && \
-  mv bin/phantomjs /usr/local/bin && \
-  rm -rf /tmp/phantomjs-$PHANTOM_JS_TAG
+COPY bin/phantomjs.2.0.1-dev /usr/local/bin/phantomjs
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1
