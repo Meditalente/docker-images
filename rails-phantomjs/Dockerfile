@@ -35,6 +35,7 @@ RUN npm install --global dredd aglio && npm cache clear
 
 # PhantomJS
 COPY bin/phantomjs.2.0.1-dev /usr/local/bin/phantomjs
+RUN chmod a+x /usr/local/bin/phantomjs
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1
