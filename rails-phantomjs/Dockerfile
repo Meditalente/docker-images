@@ -48,7 +48,7 @@ RUN cd /tmp && \
   cd phantomjs-$PHANTOM_JS_TAG && \
   ./build.sh --confirm && \
   mv bin/phantomjs /usr/local/bin && \
-  rm -rf /tmp/phantomjs
+  rm -rf /tmp/phantomjs-$PHANTOM_JS_TAG
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1
