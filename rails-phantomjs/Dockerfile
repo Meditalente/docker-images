@@ -34,8 +34,8 @@ RUN gem install slack-notifier foreman puma pg mysql2 rails
 RUN npm install --global dredd aglio && npm cache clear
 
 # PhantomJS
-COPY bin/phantomjs.2.0.1-dev /usr/local/bin/phantomjs
-RUN chmod a+x /usr/local/bin/phantomjs
+# Originally from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile
+RUN curl -Ls https://github.com/fgrehm/docker-phantomjs2/releases/download/v2.0.0-20150722/dockerized-phantomjs.tar.gz | tar xz -C /
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1
