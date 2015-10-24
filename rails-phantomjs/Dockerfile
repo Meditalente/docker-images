@@ -14,15 +14,7 @@ RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
 
 # Packages
 RUN apt-get -y -q install nginx nodejs mysql-client postgresql-client \
-      python-pip python-dev \
-      libsqlite3-dev \
-      libfontconfig1-dev \
-      libicu-dev \
-      libfreetype6 \
-      libssl-dev \
-      libpng-dev \
-      libjpeg-dev \
-      --no-install-recommends && apt-get clean
+      python-pip python-dev --no-install-recommends
 
 # AWS CLI & EB CLi
 RUN pip install --upgrade awscli awsebcli
@@ -33,10 +25,6 @@ RUN gem install slack-notifier foreman puma pg mysql2 rails
 # Install npm packages
 RUN npm install --global dredd aglio && npm cache clear
 
-# PhantomJS
-# Originally from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile
-RUN curl -Ls https://github.com/fgrehm/docker-phantomjs2/releases/download/v2.0.0-20150722/dockerized-phantomjs.tar.gz | tar xz -C /
-
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1
 
@@ -45,6 +33,48 @@ RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 # RUN chown -R www-data:www-data /var/lib/nginx
 # Add default nginx config
 COPY nginx-sites.conf /etc/nginx/conf.d/default.conf
+
+# PhantomJS from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile.buildphantomjs
+# Dependencies we just need for building phantomjs
+ENV buildDependencies\
+  wget unzip python build-essential g++ flex bison gperf\
+  ruby perl libsqlite3-dev libssl-dev libpng-dev
+
+# Dependencies we need for running phantomjs
+ENV phantomJSDependencies\
+  libicu-dev libfontconfig1-dev libjpeg-dev libfreetype6
+
+# Installing phantomjs
+RUN \
+    # Installing dependencies
+apt-get install -fyqq ${buildDependencies} ${phantomJSDependencies}\
+    # Downloading src, unzipping & removing zip
+&&  mkdir phantomjs \
+&&  cd phantomjs \
+&&  wget https://github.com/ariya/phantomjs/archive/2.0.0.zip -O phantomjs.zip \
+&&  unzip phantomjs.zip \
+&&  rm -rf /phantomjs/phantomjs.zip \
+    # Building phantom
+&&  mv phantomjs-* phantomjs \
+&&  cd phantomjs \
+&&  ./build.sh --confirm --silent \
+    # Removing everything but the binary
+&&  ls -A | grep -v bin | xargs rm -rf \
+    # Symlink phantom so that we are able to run `phantomjs`
+&&  ln -s /phantomjs/phantomjs/bin/phantomjs /usr/local/share/phantomjs \
+&&  ln -s /phantomjs/phantomjs/bin/phantomjs /usr/local/bin/phantomjs \
+&&  ln -s /phantomjs/phantomjs/bin/phantomjs /usr/bin/phantomjs \
+    # Removing build dependencies, clean temporary files
+&&  apt-get purge -yqq ${buildDependencies} \
+&&  apt-get autoremove -yqq \
+&&  apt-get clean \
+&&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    # Checking if phantom works
+&&  phantomjs -v
+
+CMD \
+    echo "phantomjs binary is located at /phantomjs/phantomjs-2.0.0/bin/phantomjs"\
+&&  echo "just run 'phantomjs' (version `phantomjs -v`)"
 
 RUN mkdir -p /usr/src/app
 
