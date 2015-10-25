@@ -37,7 +37,7 @@ COPY nginx-sites.conf /etc/nginx/conf.d/default.conf
 # PhantomJS from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile.buildphantomjs
 # Dependencies we just need for building phantomjs
 ENV buildDependencies\
-  wget unzip python build-essential g++ flex bison gperf\
+  wget unzip build-essential g++ flex bison gperf\
   ruby perl libsqlite3-dev libssl-dev libpng-dev
 
 # Dependencies we need for running phantomjs
