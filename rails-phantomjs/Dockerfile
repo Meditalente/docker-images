@@ -66,7 +66,6 @@ apt-get install -fyqq ${buildDependencies} ${phantomJSDependencies}\
 &&  ln -s /phantomjs/phantomjs/bin/phantomjs /usr/bin/phantomjs \
     # Removing build dependencies, clean temporary files
 &&  apt-get purge -yqq ${buildDependencies} \
-&&  apt-get autoremove -yqq \
 &&  apt-get clean \
 &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     # Checking if phantom works
