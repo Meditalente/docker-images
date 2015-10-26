@@ -21,4 +21,4 @@ pull:
 	docker pull $(NAME)
 
 run:
-	docker run -p 80:80 $(NAME)
+	docker run -P $(NAME)

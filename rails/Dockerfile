@@ -14,7 +14,6 @@ RUN apt-get install -yq ${MAIN_PACKAGES} ${BUILD_DEPENDENCIES}
 # AWS CLI & EB CLi
 RUN pip install --upgrade awscli awsebcli
 
-
 # Pre-install gems
 RUN gem install ${DEFAULT_GEMS}
 
@@ -46,11 +45,6 @@ COPY 502.html 503.html public/
 
 # Add default unicorn config
 COPY puma.rb config/
-
-ONBUILD COPY Gemfile /usr/src/app/
-ONBUILD COPY Gemfile.lock /usr/src/app/
-ONBUILD RUN bundle install --jobs 8
-ONBUILD COPY . /usr/src/app
 
 EXPOSE 3000
 CMD puma

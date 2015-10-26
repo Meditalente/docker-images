@@ -21,4 +21,4 @@ pull:
 	docker pull $(NAME)
 
 run:
-	docker run -p 3000:3000 $(NAME)
+	docker run -P $(NAME)
