@@ -45,7 +45,7 @@ RUN echo "phantomjs binary is located at `which phantomjs`" \
   && echo "just run 'phantomjs' (version `phantomjs -v`)"
 
 # Removing build dependencies, clean temporary files
-RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
+RUN apt-get remove -yq ${BUILD_DEPENDENCIES}
 
 # Make sure required packages installed
 RUN apt-get install -yq ${MAIN_PACKAGES} ${PHANTOM_JS_DEPENDENCIES}
