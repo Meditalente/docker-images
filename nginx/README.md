@@ -1,6 +1,8 @@
 Docker base image: Nginx
 =======================================
 
+Base image prepared to use [Nginx](http://nginx.org) as recerse-proxy for [Puma](http://puma.io) rack-server prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
+
 [![](https://badge.imagelayers.io/asux/nginx:latest.svg)](https://imagelayers.io/?images=asux/nginx:latest 'Get your own badge on imagelayers.io')
 
 ## Dockerfile
@@ -22,7 +24,7 @@ To tag latest image:
 make tag_latest
 ```
 
-To push to [Docker Hub repo](https://hub.docker.com/u/asux/nginx/):
+To push to [Docker Hub repo](https://hub.docker.com/r/asux/nginx/):
 
 ```shell
 make push

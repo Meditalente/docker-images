@@ -1,9 +1,9 @@
 Docker base image: Rails + Puma
 =======================================
 
-[![](https://badge.imagelayers.io/asux/rails:latest.svg)](https://imagelayers.io/?images=asux/rails:latest 'Get your own badge on imagelayers.io')
-
 Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
+
+[![](https://badge.imagelayers.io/asux/rails:latest.svg)](https://imagelayers.io/?images=asux/rails:latest 'Get your own badge on imagelayers.io')
 
 ## Dockerfile
 
@@ -24,7 +24,7 @@ To tag latest image:
 make tag_latest
 ```
 
-To push to [Docker Hub repo](https://hub.docker.com/u/asux/rails/):
+To push to [Docker Hub repo](https://hub.docker.com/r/asux/rails/):
 
 ```shell
 make push

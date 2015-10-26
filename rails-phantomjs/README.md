@@ -1,7 +1,7 @@
 Docker base image: Rails + Puma + PhantomJS
 =======================================
 
-Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
+Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) and [PhantomJS](http://phantomjs.org) 2.0.0 prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
 
 [![](https://badge.imagelayers.io/asux/rails-phantomjs:latest.svg)](https://imagelayers.io/?images=asux/rails-phantomjs:latest 'Get your own badge on imagelayers.io')
 
