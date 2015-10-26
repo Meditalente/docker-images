@@ -10,10 +10,11 @@ RUN curl --silent --location http://nginx.org/keys/nginx_signing.key | apt-key a
 COPY nginx-mainline.list /etc/apt/sources.list.d/nginx.list
 
 # Install NodeJs 0.12
-RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
+# RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
 
 # Packages
-ENV mainPackages git nginx nodejs mysql-client postgresql-client python-pip
+ENV mainPackages\
+  git nginx mysql-client postgresql-client python-pip
 
 # PhantomJS from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile.buildphantomjs
 # Dependencies we just need for building phantomjs
@@ -27,6 +28,7 @@ ENV phantomJSDependencies\
 
 # Installing phantomjs
 # Installing dependencies
+RUN apt-get update
 RUN apt-get install -fyq ${buildDependencies} ${phantomJSDependencies}
 
 # Downloading src, unzipping & removing zip
@@ -61,7 +63,7 @@ RUN pip install --upgrade awscli awsebcli
 RUN gem install slack-notifier foreman puma pg mysql2 rails
 
 # Install npm packages
-RUN npm install --global dredd aglio && npm cache clear
+# RUN npm install --global dredd aglio && npm cache clear
 
 # Removing build dependencies, clean temporary files
 RUN apt-get purge -yq ${buildDependencies}
