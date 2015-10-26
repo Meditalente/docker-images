@@ -1,5 +1,5 @@
 Docker base image: Rails + Puma + PhantomJS
-=======================================
+===========================================
 
 Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) and [PhantomJS](http://phantomjs.org) 2.0.0 prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
 
@@ -7,7 +7,7 @@ Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://
 
 ## Dockerfile
 
-Dockerfile on [Github](https://github.com/noplanb/rails-base/blob/master/Dockerfile).
+Dockerfile on [Github](https://github.com/asux/docker-images/blob/master/rails-phantomjs/Dockerfile).
 
 ## Build
 Commmit changes and create new tag.
@@ -24,7 +24,7 @@ To tag latest image:
 make tag_latest
 ```
 
-To push to [Docker Hub repo](https://registry.hub.docker.com/u/zazo/rails/):
+To push to [Docker Hub repo](https://hub.docker.com/r/asux/rails/):
 
 ```shell
 make push
@@ -38,8 +38,6 @@ make
 
 ## Usage
 
-Simple `Dockerfile` for your rails app is [here](https://github.com/noplanb/rails-base/blob/master/examples/Dockerfile).
+Simple `Dockerfile` for your rails app is [here](https://github.com/asux/docker-images/blob/master/rails-phantomjs/examples/Dockerfile).
 
-Simple `Dockerrun.aws.json` is [here](https://github.com/noplanb/rails-base/blob/master/examples/Dockerrun.aws.json).
-
-Simple EB config file with `rake db:migrate` is [here](https://github.com/noplanb/rails-base/blob/master/examples/eb.config).
+Simple `Dockerrun.aws.json` is [here](https://github.com/asux/docker-images/blob/master/rails-phantomjs/examples/Dockerrun.aws.json).
