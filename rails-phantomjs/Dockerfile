@@ -3,9 +3,10 @@ MAINTAINER Alex Ulianytskyi <a.ulyanitsky@gmail.com>
 
 # Packages
 ENV MAIN_PACKAGES git postgresql-client python python-pip
-# PhantomJS from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile.buildphantomjs
-# Dependencies we just need for building phantomjs
 
+# PhantomJS from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile.buildphantomjs
+
+# Dependencies we just need for building phantomjs
 ENV BUILD_DEPENDENCIES\
   wget tar gzip build-essential g++ flex bison gperf\
   ruby perl libsqlite3-dev libssl-dev libpng-dev python-dev
@@ -55,8 +56,8 @@ RUN gem install ${DEFAULT_GEMS}
 # Removing build dependencies, clean temporary files
 RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
 
-# Make sure main packages installed
-RUN apt-get install -yq ${MAIN_PACKAGES}
+# Make sure required packages installed
+RUN apt-get install -yq ${MAIN_PACKAGES} ${PHANTOM_JS_DEPENDENCIES}
 RUN apt-get autoremove -yq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
