@@ -35,3 +35,9 @@ Or do this all:
 ```shell
 make
 ```
+
+## Usage
+
+This image made for AWS EB multicontainer environment and assumes:
+  * Links [rails](https://github.com/asux/docker-images/blob/master/rails/)  service as **web**.
+  * The `public` directory mounts to `/usr/share/nginx/html`.

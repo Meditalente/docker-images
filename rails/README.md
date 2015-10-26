@@ -38,6 +38,10 @@ make
 
 ## Usage
 
-Simple `Dockerfile` for your rails app is [here](https://github.com/asux/docker-images/blob/master/rails/examples/Dockerfile).
+This image made for AWS EB multicontainer environment and assumes:
+  * The [nginx](https://github.com/asux/docker-images/blob/master/nginx/) links this service as **web**.
+  * The code mounts to `/usr/src/app`.
+  * The startup script `bin/start.sh` prepares and runs web service or worker service if `WORKER=true`.
 
+Simple `Dockerfile` for your rails app is [here](https://github.com/asux/docker-images/blob/master/rails/examples/Dockerfile).
 Simple `Dockerrun.aws.json` is [here](https://github.com/asux/docker-images/blob/master/rails/examples/Dockerrun.aws.json).

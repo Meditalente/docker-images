@@ -39,12 +39,5 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-RUN mkdir -p public log tmp tmp/sockets tmp/pids tmp/cache
-
-COPY 502.html 503.html public/
-
-# Add default unicorn config
-COPY puma.rb config/
-
 EXPOSE 3000
-CMD puma
+CMD bin/start.sh
