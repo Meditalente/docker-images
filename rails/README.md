@@ -1,11 +1,13 @@
-Docker base image: Rails + Nginx + Puma
+Docker base image: Rails + Puma
 =======================================
 
-Docker base image for [Rails](http://rubyonrails.org) runned with [Nginx](http://nginx.org) and [Puma](http://puma.io) prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
+[![](https://badge.imagelayers.io/asux/rails:latest.svg)](https://imagelayers.io/?images=asux/rails:latest 'Get your own badge on imagelayers.io')
+
+Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
 
 ## Dockerfile
 
-Dockerfile on [Github](https://github.com/noplanb/rails-base/blob/master/Dockerfile).
+Dockerfile on [Github](https://github.com/asux/docker-images/blob/master/rails/Dockerfile).
 
 ## Build
 Commmit changes and create new tag.
@@ -22,7 +24,7 @@ To tag latest image:
 make tag_latest
 ```
 
-To push to [Docker Hub repo](https://registry.hub.docker.com/u/zazo/rails/):
+To push to [Docker Hub repo](https://hub.docker.com/u/asux/rails/):
 
 ```shell
 make push
@@ -36,8 +38,6 @@ make
 
 ## Usage
 
-Simple `Dockerfile` for your rails app is [here](https://github.com/noplanb/rails-base/blob/master/examples/Dockerfile).
+Simple `Dockerfile` for your rails app is [here](https://github.com/asux/docker-images/blob/master/rails/examples/Dockerfile).
 
-Simple `Dockerrun.aws.json` is [here](https://github.com/noplanb/rails-base/blob/master/examples/Dockerrun.aws.json).
-
-Simple EB config file with `rake db:migrate` is [here](https://github.com/noplanb/rails-base/blob/master/examples/eb.config).
+Simple `Dockerrun.aws.json` is [here](https://github.com/asux/docker-images/blob/master/rails/examples/Dockerrun.aws.json).

@@ -1,3 +1,3 @@
-FROM zazo/rails
+FROM asux/rails
 
-EXPOSE 8000
+EXPOSE 3000

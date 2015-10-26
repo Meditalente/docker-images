@@ -1,4 +1,4 @@
-NAME=asux/rails
+NAME=asux/nginx
 VERSION=`git describe --tags`
 CORE_VERSION=HEAD
 PWD=`pwd`
@@ -21,4 +21,4 @@ pull:
 	docker pull $(NAME)
 
 run:
-	docker run -p 3000:3000 $(NAME)
+	docker run -p 80:80 $(NAME)

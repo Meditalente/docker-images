@@ -1,4 +1,4 @@
-NAME=zazo/rails
+NAME=asux/rails-phantomjs
 VERSION=`git describe --tags`
 CORE_VERSION=HEAD
 PWD=`pwd`
@@ -21,4 +21,4 @@ pull:
 	docker pull $(NAME)
 
 run:
-	docker run -P -v $(PWD)/public:/usr/src/app/public -v $(PWD)/log:/usr/src/app/log -v $(PWD)/tmp:/usr/src/app/tmp $(NAME)
+	docker run -p 3000:3000 $(NAME)

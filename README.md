@@ -1,4 +1,6 @@
 Docker images
 =============
 
-* [Rails base image](./rails) | [Dockerfile](./rails/Dockerfile)
+* [nginx](./rails) | [Dockerfile](./nginx/Dockerfile)
+* [rails](./rails) | [Dockerfile](./rails/Dockerfile)
+* [rails-phantomjs](./rails) | [Dockerfile](./rails-phantomjs/Dockerfile)
