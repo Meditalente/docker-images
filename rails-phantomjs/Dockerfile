@@ -58,3 +58,5 @@ RUN eb --version
 RUN rails --version
 RUN puma --version
 RUN phantomjs -v
+
+WORKDIR /usr/src/app
