@@ -15,7 +15,7 @@ ENV BUILD_DEPENDENCIES\
 ENV PHANTOM_JS_DEPENDENCIES\
   libicu-dev libfontconfig1-dev libjpeg-dev libfreetype6
 
-ENV PHANTOM_JS_TAG 2.0.0
+ENV PHANTOM_JS_TAG 2.1.1
 
 # Installing phantomjs
 # Installing dependencies
