@@ -3,9 +3,9 @@ MAINTAINER Alex Ulianytskyi <a.ulyanitsky@gmail.com>
 
 # Packages
 ENV MAIN_PACKAGES git postgresql-client python python-pip
-ENV BUILD_DEPENDENCIES python-dev
+ENV BUILD_DEPENDENCIES python-dev libgmp3-dev
 # Gems to install
-ENV DEFAULT_GEMS rails slack-notifier puma pg
+ENV DEFAULT_GEMS rails slack-notifier puma pg bcrypt
 
 # Install main packages
 RUN apt-get update
