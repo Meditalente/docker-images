@@ -12,7 +12,7 @@ RUN apt-get update
 RUN apt-get install -yq ${MAIN_PACKAGES} ${BUILD_DEPENDENCIES}
 
 # AWS CLI & EB CLi
-RUN pip install --upgrade awscli awsebcli
+RUN pip install --upgrade awscli awsebcli colorama
 
 # Pre-install gems
 RUN gem install ${DEFAULT_GEMS}
