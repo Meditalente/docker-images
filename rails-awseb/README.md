@@ -1,5 +1,5 @@
-Docker base image: Rails + Puma + AWS EB CLI
-=======================================
+Docker base image: Rails + Puma + PostgreSQL & MySQL clients + AWS EB CLI
+=========================================================================
 
 Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
 

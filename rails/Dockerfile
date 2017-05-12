@@ -24,10 +24,10 @@ RUN apt-get autoremove -yq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN aws --version
-RUN eb --version
 RUN rails --version
 RUN puma --version
+RUN psql --version
+RUN mysql --version
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1

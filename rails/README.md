@@ -1,5 +1,5 @@
-Docker base image: Rails + Puma
-=======================================
+Docker base image: Rails + Puma + PostgreSQL & MySQL clients
+============================================================
 
 Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io)
 [![](https://badge.imagelayers.io/asux/rails:latest.svg)](https://imagelayers.io/?images=asux/rails:latest 'Get your own badge on imagelayers.io')
