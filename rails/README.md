@@ -1,8 +1,7 @@
 Docker base image: Rails + Puma
 =======================================
 
-Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io) prepared for deploy on [AWS Elasticbeanstalk](http://aws.amazon.com/ru/elasticbeanstalk/).
-
+Docker base image for [Rails](http://rubyonrails.org) runned with [Puma](http://puma.io)
 [![](https://badge.imagelayers.io/asux/rails:latest.svg)](https://imagelayers.io/?images=asux/rails:latest 'Get your own badge on imagelayers.io')
 
 ## Dockerfile

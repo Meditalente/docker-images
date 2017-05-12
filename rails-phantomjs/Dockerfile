@@ -2,7 +2,7 @@ FROM asux/rails
 MAINTAINER Alex Ulianytskyi <a.ulyanitsky@gmail.com>
 
 # Packages
-ENV MAIN_PACKAGES git postgresql-client python python-pip
+# ENV MAIN_PACKAGES
 
 # PhantomJS from https://github.com/fgrehm/docker-phantomjs2/blob/master/Dockerfile.buildphantomjs
 
@@ -20,7 +20,7 @@ ENV PHANTOM_JS_TAG 2.1.1
 # Installing phantomjs
 # Installing dependencies
 RUN apt-get update
-RUN apt-get install -fyq ${MAIN_PACKAGES} ${PHANTOM_JS_DEPENDENCIES}
+RUN apt-get install -fyq ${PHANTOM_JS_DEPENDENCIES}
 
 # Downloading bin, unzipping & removing zip
 WORKDIR /tmp
@@ -37,7 +37,7 @@ RUN echo "phantomjs binary is located at `which phantomjs`" \
 # RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
 
 # Make sure required packages installed
-RUN apt-get install -yq ${MAIN_PACKAGES} ${PHANTOM_JS_DEPENDENCIES}
+RUN apt-get install -yq ${PHANTOM_JS_DEPENDENCIES}
 RUN apt-get autoremove -yq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -2,8 +2,8 @@ FROM ruby:2
 MAINTAINER Alex Ulianytskyi <a.ulyanitsky@gmail.com>
 
 # Packages
-ENV MAIN_PACKAGES git postgresql-client mysql-client
-# ENV BUILD_DEPENDENCIES
+ENV MAIN_PACKAGES git postgresql-client mysql-client python python-pip
+ENV BUILD_DEPENDENCIES python-dev libgmp3-dev
 # Gems to install
 ENV DEFAULT_GEMS rails slack-notifier puma pg mysql2 bcrypt
 
@@ -11,11 +11,14 @@ ENV DEFAULT_GEMS rails slack-notifier puma pg mysql2 bcrypt
 RUN apt-get update
 RUN apt-get install -yq ${MAIN_PACKAGES} ${BUILD_DEPENDENCIES}
 
+# AWS CLI & EB CLi
+RUN pip install --upgrade awscli awsebcli colorama
+
 # Pre-install gems
 RUN gem install ${DEFAULT_GEMS}
 
 # Removing build dependencies, clean temporary files
-# RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
+RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
 
 # Make sure main packages installed
 RUN apt-get install -yq ${MAIN_PACKAGES}
