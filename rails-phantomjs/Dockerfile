@@ -1,4 +1,4 @@
-FROM asux/rails
+FROM asux/rails:2.3
 MAINTAINER Alex Ulianytskyi <a.ulyanitsky@gmail.com>
 
 # Packages

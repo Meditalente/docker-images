@@ -1,4 +1,4 @@
-FROM ruby:2
+FROM ruby:2.3
 MAINTAINER Alex Ulianytskyi <a.ulyanitsky@gmail.com>
 
 # Packages
