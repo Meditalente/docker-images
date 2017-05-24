@@ -42,8 +42,6 @@ RUN apt-get autoremove -yq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN aws --version
-RUN eb --version
 RUN rails --version
 RUN puma --version
 RUN phantomjs -v
