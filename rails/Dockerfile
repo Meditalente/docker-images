@@ -2,8 +2,8 @@ FROM ruby:2
 LABEL maintainer="Alex Ulianytskyi <a.ulyanitsky@gmail.com>"
 
 # Packages
-ENV MAIN_PACKAGES git postgresql-client mysql-client nodejs yarn
-ENV BUILD_DEPENDENCIES build-essential libpq-dev curl
+ENV MAIN_PACKAGES curl git postgresql-client mysql-client nodejs yarn
+ENV BUILD_DEPENDENCIES build-essential libpq-dev
 # Gems to install
 ENV DEFAULT_GEMS rails slack-notifier puma pg mysql2 bcrypt
 
@@ -23,7 +23,7 @@ RUN apt-get install -yq ${MAIN_PACKAGES}
 RUN gem install ${DEFAULT_GEMS}
 
 # Removing build dependencies, clean temporary files
-# RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
+RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
 
 # Make sure main packages installed
 RUN apt-get install -yq ${MAIN_PACKAGES}
