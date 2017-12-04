@@ -23,7 +23,7 @@ RUN apt-get install -yq ${MAIN_PACKAGES}
 RUN gem install ${DEFAULT_GEMS}
 
 # Removing build dependencies, clean temporary files
-RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
+# RUN apt-get purge -yq ${BUILD_DEPENDENCIES}
 
 # Make sure main packages installed
 RUN apt-get install -yq ${MAIN_PACKAGES}
